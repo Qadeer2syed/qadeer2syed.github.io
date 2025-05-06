@@ -1,5 +1,4 @@
 // src/app/page.js
-
 'use client';
 
 import { useState, useEffect } from "react";
@@ -12,62 +11,54 @@ import Projects from "../components/Projects";
 import Education from "../components/Education";
 import Contact from "../components/Contact";
 import Copyright from "../components/Copyright";
-import useActiveSection from "../hooks/useActiveSection"; // ✅ import hook
-import './globals.css';  // Global CSS
+import useActiveSection from "../hooks/useActiveSection";
+import './globals.css';
 
 export default function Page() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  const sectionIds = ["home", "about", "experience", "education", "projects",  "contact"];
-  const activeSection = useActiveSection(sectionIds); // ✅ Use hook
+  const sectionIds = ["home", "about", "experience", "education", "projects", "contact"];
+  const activeSection = useActiveSection(sectionIds);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 400);
-    };
-
+    const handleScroll = () => setShowScrollTop(window.scrollY > 400);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
+    { name: "Home",      href: "#home"      },
+    { name: "About",     href: "#about"     },
+    { name: "Experience",href: "#experience"},
     { name: "Education", href: "#education" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Projects",  href: "#projects"  },
+    { name: "Contact",   href: "#contact"   },
   ];
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
     <div className="bg-primary min-h-screen">
-      {/* Navigation */}
       <header className="fixed top-0 w-full z-50 backdrop-blur-md bg-primary/80 border-b border-gray-800/50">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <a href="#home" className="font-display text-xl font-bold gradient-text">
             QS
           </a>
 
+          {/* Desktop nav */}
           <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a 
-                key={item.name} 
-                href={item.href} 
-                className={`nav-link ${activeSection === item.href.substring(1) ? 'text-accent' : ''}`}
+            {navItems.map(item => (
+              <a
+                key={item.name}
+                href={item.href}
+                className={`nav-link ${activeSection === item.href.slice(1) ? 'text-accent' : ''}`}
               >
                 {item.name}
               </a>
             ))}
-            <a 
-              href="/Qadeerullah_Syed_Resume.pdf" 
+            <a
+              href="/Qadeerullah_Syed_Resume.pdf"
               download="Qadeerullah_Syed_Resume.pdf"
               className="btn btn-outline text-sm py-2"
             >
@@ -75,39 +66,61 @@ export default function Page() {
             </a>
           </nav>
 
-          <button 
+          {/* Mobile toggle */}
+          <button
             className="md:hidden text-muted hover:text-bright"
-            onClick={() => setIsNavOpen(!isNavOpen)}
+            onClick={() => setIsNavOpen(open => !open)}
           >
             {isNavOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
         </div>
+
+        {/* Mobile menu */}
+        <AnimatePresence>
+          {isNavOpen && (
+            <motion.nav
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden bg-primary/90 backdrop-blur-md border-t border-gray-800/50"
+            >
+              <div className="flex flex-col px-6 py-4 space-y-4">
+                {navItems.map(item => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsNavOpen(false)}
+                    className={`nav-link block ${activeSection === item.href.slice(1) ? 'text-accent' : ''}`}
+                  >
+                    {item.name}
+                  </a>
+                ))}
+                <a
+                  href="/Qadeerullah_Syed_Resume.pdf"
+                  download="Qadeerullah_Syed_Resume.pdf"
+                  onClick={() => setIsNavOpen(false)}
+                  className="btn btn-outline text-sm py-2 w-fit"
+                >
+                  Resume
+                </a>
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </header>
 
-      {/* Main Content */}
-      <main className="pt-16 container mx-auto px-6 md:px-20 flex flex-col space-y-16">
-        <section id="home" className="scroll-mt-20">
-          <Hero />
-        </section>
-        <section id="about" className="scroll-mt-20">
+      <main className="pt-16">
+        <div id="home"><Hero /></div>
+        <div className="container mx-auto px-6 space-y-16">
           <About />
-        </section>
-        <section id="experience" className="scroll-mt-20">
           <Experience />
-        </section>
-        <section id="education" className="scroll-mt-20">
           <Education />
-        </section>
-        <section id="projects" className="scroll-mt-20">
           <Projects />
-        </section>
-        <section id="contact" className="scroll-mt-20">
-         <Contact />
-        </section>
+          <Contact />
+        </div>
       </main>
 
-      {/* Footer */}
-      <motion.footer 
+      <motion.footer
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -121,7 +134,6 @@ export default function Page() {
         </div>
       </motion.footer>
 
-      {/* Scroll to Top */}
       <AnimatePresence>
         {showScrollTop && (
           <motion.button
