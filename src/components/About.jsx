@@ -45,17 +45,17 @@ export default function About() {
           <div className="relative mb-8">
             <div className="absolute -left-3 top-0 h-full w-1 bg-gradient-to-b from-accent to-transparent rounded-full" />
             <p className="text-lg leading-relaxed text-muted">
-              I'm a <AnimatedArcHighlight color="#6EE7B7" delay={1.0}>full-stack software engineer</AnimatedArcHighlight> with expertise in building scalable, 
-              <AnimatedArcHighlight color="#FFB3B3" delay={1.5}>enterprise-grade APIs</AnimatedArcHighlight> paired with dynamic, user-centric front-end interfaces.
+              I'm a <AnimatedArcHighlight color="var(--highlight-mint)" delay={1.0}>full-stack software engineer</AnimatedArcHighlight> with expertise in building scalable, 
+              <AnimatedArcHighlight color="var(--highlight-rose)" delay={1.5}>enterprise-grade APIs</AnimatedArcHighlight> paired with dynamic, user-centric front-end interfaces.
             </p>
             <p className="text-lg leading-relaxed text-muted mt-4">
-              My passion lies in <AnimatedArcHighlight color="#5EEAD4" delay={2.0}>Machine Learning and Generative AI</AnimatedArcHighlight>, 
+              My passion lies in <AnimatedArcHighlight color="var(--highlight-cyan)" delay={2.0}>Machine Learning and Generative AI</AnimatedArcHighlight>, 
               where I specialize in creating intelligent, data-driven solutions that 
-              <AnimatedArcHighlight color="	#FDBA74" delay={2.5}>solve real-world problems</AnimatedArcHighlight> and enhance user experiences.
+              <AnimatedArcHighlight color="var(--highlight-amber)" delay={2.5}>solve real-world problems</AnimatedArcHighlight> and enhance user experiences.
             </p>
             <p className="text-lg leading-relaxed text-muted mt-4">
               Currently focusing on developing applications that leverage the power of 
-              <AnimatedArcHighlight color="	#A5B4FC" delay={3.0}>large language models</AnimatedArcHighlight> to create intuitive and efficient user interfaces.
+              <AnimatedArcHighlight color="var(--highlight-indigo)" delay={3.0}>large language models</AnimatedArcHighlight> to create intuitive and efficient user interfaces.
             </p>
           </div>
         </motion.div>
