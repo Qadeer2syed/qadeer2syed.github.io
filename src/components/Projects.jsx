@@ -47,11 +47,12 @@ const projects = [
     liveLink: null
   },
   {
-    title: "Quick-Connect",
-    image: "/images/connect.jpg",
-    tech: ["Sprinboot", "PostgreSQL"],
-    description: "Developed a fully-functional social networking platform with domain-restricted access within university to eliminate anonymity",
-    githubLink: null,
+    
+    title: "Fingerprint Matching Using DCNN",
+    image: "/images/match.jpg",
+    tech: ["Python","OpenCV", "PyTorch"],
+    description: "Deep Neural Network trained to identify patterns for a fingerprint recognition system",
+    githubLink: "https://github.com/Qadeer2syed/Fingerprint-Matcher-using-DCNN",
     liveLink: null
   },
   {
@@ -71,11 +72,11 @@ const projects = [
     liveLink: null
   },
   {
-    title: "Fingerprint Matching Using DCNN",
-    image: "/images/match.jpg",
-    tech: ["Python","OpenCV", "PyTorch"],
-    description: "Deep Neural Network trained to identify patterns for a fingerprint recognition system",
-    githubLink: "https://github.com/Qadeer2syed/Fingerprint-Matcher-using-DCNN",
+    title: "Quick-Connect",
+    image: "/images/connect.jpg",
+    tech: ["Sprinboot", "PostgreSQL"],
+    description: "Developed a fully-functional social networking platform with domain-restricted access within university to eliminate anonymity",
+    githubLink: null,
     liveLink: null
   }
 ];
