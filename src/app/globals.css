@@ -24,12 +24,12 @@
     --background: #0a0a0a;
     --foreground: #ededed;
 
-    --highlight-yellow:  #D5C75D;
-    --highlight-rose:    #C78F8F;
-    --highlight-mint:    #53B294;
-    --highlight-cyan:    #44ABAC;
-    --highlight-amber:   #C7984F;
-    --highlight-indigo:  #8B7ADA;
+    --highlight-yellow:  #C9A60A;  /* darker goldenrod */
+    --highlight-rose:    #C04E52;  /* deep rose */
+    --highlight-mint:    #3CB371;  /* medium sea green */
+    --highlight-cyan:    #008B8B;  /* dark cyan */
+    --highlight-amber:   #FF8C00;  /* dark orange */
+    --highlight-indigo:  #6A5ACD;  /* slate blue */
   }
 }
 
