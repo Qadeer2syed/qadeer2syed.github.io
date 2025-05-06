@@ -1,103 +1,140 @@
-import Image from "next/image";
+// src/app/page.js
 
-export default function Home() {
+'use client';
+
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiMenu, FiX, FiArrowUp } from "react-icons/fi";
+import Hero from "../components/Hero";
+import About from "../components/About";
+import Experience from "../components/Experience";
+import Projects from "../components/Projects";
+import Education from "../components/Education";
+import Contact from "../components/Contact";
+import Copyright from "../components/Copyright";
+import useActiveSection from "../hooks/useActiveSection"; // ✅ import hook
+import './globals.css';  // Global CSS
+
+export default function Page() {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  const sectionIds = ["home", "about", "experience", "education", "projects",  "contact"];
+  const activeSection = useActiveSection(sectionIds); // ✅ Use hook
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navItems = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
+    { name: "Projects", href: "#projects" },
+    { name: "Education", href: "#education" },
+    { name: "Contact", href: "#contact" },
+  ];
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="bg-primary min-h-screen">
+      {/* Navigation */}
+      <header className="fixed top-0 w-full z-50 backdrop-blur-md bg-primary/80 border-b border-gray-800/50">
+        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+          <a href="#home" className="font-display text-xl font-bold gradient-text">
+            QS
+          </a>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <nav className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <a 
+                key={item.name} 
+                href={item.href} 
+                className={`nav-link ${activeSection === item.href.substring(1) ? 'text-accent' : ''}`}
+              >
+                {item.name}
+              </a>
+            ))}
+            <a 
+              href="/Qadeerullah_Syed_Resume.pdf" 
+              download="Qadeerullah_Syed_Resume.pdf"
+              className="btn btn-outline text-sm py-2"
+            >
+              Resume
+            </a>
+          </nav>
+
+          <button 
+            className="md:hidden text-muted hover:text-bright"
+            onClick={() => setIsNavOpen(!isNavOpen)}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            {isNavOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          </button>
         </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="pt-16 container mx-auto px-6 md:px-20 flex flex-col space-y-16">
+        <section id="home" className="scroll-mt-20">
+          <Hero />
+        </section>
+        <section id="about" className="scroll-mt-20">
+          <About />
+        </section>
+        <section id="experience" className="scroll-mt-20">
+          <Experience />
+        </section>
+        <section id="education" className="scroll-mt-20">
+          <Education />
+        </section>
+        <section id="projects" className="scroll-mt-20">
+          <Projects />
+        </section>
+        <section id="contact" className="scroll-mt-20">
+         <Contact />
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      {/* Footer */}
+      <motion.footer 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="bg-surface/30 border-t border-gray-800/50 mt-20 py-8"
+      >
+        <div className="container mx-auto px-6 text-center">
+          <Copyright />
+          <p className="text-sm text-muted mt-2">
+            Built with React, Tailwind CSS & Framer Motion
+          </p>
+        </div>
+      </motion.footer>
+
+      {/* Scroll to Top */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 bg-accent/80 hover:bg-accent p-3 rounded-full shadow-lg z-50"
+          >
+            <FiArrowUp size={20} />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
