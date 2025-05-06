@@ -7,9 +7,7 @@ import { FiMail, FiGithub, FiLinkedin, FiPhone, FiArrowDown } from "react-icons/
 import { AnimatedArcHighlight } from './AnimatedArcHighlight';
 
 // Slide URLs from /public/images
-const slides = ["/images/bg1.jpg","/images/bg2.jpg"
-    // ,"/images/bg3.jpg"
-    ];
+const slides = ["/images/bg1.jpg","/images/bg2.jpg"];
 
 export default function Hero() {
   const [current, setCurrent] = useState(0);
