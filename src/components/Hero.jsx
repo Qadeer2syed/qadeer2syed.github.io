@@ -7,7 +7,9 @@ import { FiMail, FiGithub, FiLinkedin, FiPhone, FiArrowDown } from "react-icons/
 import { AnimatedArcHighlight } from './AnimatedArcHighlight';
 
 // Slide URLs from /public/images
-const slides = ["/images/bg1.jpg","/images/bg2.jpg"];
+const slides = ["/images/bg1.jpg","/images/bg2.jpg"
+    // ,"/images/bg3.jpg"
+    ];
 
 export default function Hero() {
   const [current, setCurrent] = useState(0);
@@ -95,7 +97,7 @@ export default function Hero() {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="text-xl md:text-2xl mb-10 text-muted"
           >
-            <AnimatedArcHighlight color="#FDE68A" delay={1.0}>Full-Stack Engineer</AnimatedArcHighlight> <span className="text-accent">|</span> <AnimatedArcHighlight color="#FFB3B3" delay={1.5}> ML & Generative AI Specialist</AnimatedArcHighlight>
+            <AnimatedArcHighlight color="var(--highlight-yellow)" delay={1.0}>Full-Stack Engineer</AnimatedArcHighlight> <span className="text-accent">|</span> <AnimatedArcHighlight color="var(--highlight-rose)" delay={1.5}> ML & Generative AI Specialist</AnimatedArcHighlight>
           </motion.p>
           
           <motion.div 
