@@ -15,7 +15,7 @@ const experiences = [
   {
     title: "Software Engineer - Full-Time",
     company: "Deloitte",
-    timeline: "Jan 2023 - Jun 2023",
+    timeline: "Jul 2022 - Jun 2023",
     points: [
       "Streamlined backend development and API integration for Fortune 500 financial institution",
       "Designed and deployed workflow for 12+ APIs, increasing efficiency by 15%",
