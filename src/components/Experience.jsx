@@ -4,6 +4,17 @@ import { FiBriefcase } from "react-icons/fi";
 
 const experiences = [
   {
+    title: "Founder",
+    company: "SwyffAI",
+    timeline: "Oct 2024 - Present",
+    points: [
+      "Founded and developed an AI-powered web platform providing intelligent assistance across any website through a Chrome extension",
+      "Built a scalable Next.js application with Supabase authentication, credit management system, and multi-model AI integration (GPT-4, Claude, Gemini)",
+      "Implemented smart content selection, YouTube video analysis with timestamp navigation, and context-aware chat functionality",
+      "Engineered RESTful APIs for AI processing, user management, and real-time content analysis using React 19 and Tailwind CSS"
+    ]
+  },
+  {
     title: "Instructional Student Assistant",
     company: "San Jose State University",
     timeline: "Aug 2024 - Jan 2025",
