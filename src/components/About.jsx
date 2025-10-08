@@ -45,16 +45,16 @@ export default function About() {
           <div className="relative mb-8">
             <div className="absolute -left-3 top-0 h-full w-1 bg-gradient-to-b from-accent to-transparent rounded-full" />
             <p className="text-lg leading-relaxed text-muted">
-              I'm a <AnimatedArcHighlight color="var(--highlight-mint)" delay={1.0}>full-stack software engineer</AnimatedArcHighlight> with expertise in building scalable, 
-              <AnimatedArcHighlight color="var(--highlight-rose)" delay={1.5}>enterprise-grade APIs</AnimatedArcHighlight> paired with dynamic, user-centric front-end interfaces.
+              I'm a <AnimatedArcHighlight color="var(--highlight-mint)" delay={0.3}>full-stack software engineer</AnimatedArcHighlight> with expertise in building scalable,
+              <AnimatedArcHighlight color="var(--highlight-rose)" delay={1.0}>enterprise-grade APIs</AnimatedArcHighlight> paired with dynamic, user-centric front-end interfaces.
             </p>
             <p className="text-lg leading-relaxed text-muted mt-4">
-              My passion lies in <AnimatedArcHighlight color="var(--highlight-cyan)" delay={2.0}>Machine Learning and Generative AI</AnimatedArcHighlight>, 
-              where I specialize in creating intelligent, data-driven solutions that 
-              <AnimatedArcHighlight color="var(--highlight-amber)" delay={2.5}>solve real-world problems</AnimatedArcHighlight> and enhance user experiences.
+              My passion lies in <AnimatedArcHighlight color="var(--highlight-cyan)" delay={1.5}>Machine Learning and Generative AI</AnimatedArcHighlight>,
+              where I specialize in creating intelligent, data-driven solutions that
+              <AnimatedArcHighlight color="var(--highlight-amber)" delay={2.0}>solve real-world problems</AnimatedArcHighlight> and enhance user experiences.
             </p>
             <p className="text-lg leading-relaxed text-muted mt-4">
-              As the founder of <AnimatedArcHighlight color="var(--highlight-purple)" delay={3.0}>SwyffAI</AnimatedArcHighlight>,
+              As the founder of <AnimatedArcHighlight color="var(--highlight-purple)" delay={2.5}>SwyffAI</AnimatedArcHighlight>,
               I'm building a web platform that brings AI assistance to any website, featuring smart content selection,
               YouTube integration with timestamp navigation, and multi-model AI support (GPT-4, Claude, Gemini) through an intelligent Chrome extension.
             </p>

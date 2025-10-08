@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 :root {
-
   --background: #0a0a0a;
   --foreground: #ededed;
 
@@ -11,7 +10,7 @@
   --highlight-cyan:    #44ABAC;
   --highlight-amber:   #C7984F;
   --highlight-indigo:  #8B7ADA;
-
+  --highlight-purple:  #9B7EDE;
 }
 
 @theme inline {
@@ -23,7 +22,6 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    
     --background: #ffffff;
     --foreground: #171717;
 
@@ -33,6 +31,7 @@
     --highlight-cyan:    #5EEAD4;
     --highlight-amber:   #FDBA74;
     --highlight-indigo:  #A5B4FC;
+    --highlight-purple:  #C4B5FD;
   }
 }
 
